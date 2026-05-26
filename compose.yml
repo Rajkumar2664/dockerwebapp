@@ -4,23 +4,10 @@ services:
   devopsdb:
     image: rajubingi2664/dockerautodemo:db
     ports:
-      - "3307:3306"
-    deploy:
-      replicas: 3
-    networks:
-      - mynetwork
+      - "3306:3306"
 
   application:
     image: rajubingi2664/dockerautodemo:app
     ports:
-      - "1112:8080"
-    deploy:
-      replicas: 3
-    depends_on:
-      - devopsdb
-    networks:
-      - mynetwork
+      - "2222:8080"
 
-networks:
-  mynetwork:
-    driver: overlay
